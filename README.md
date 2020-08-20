@@ -33,6 +33,8 @@ The main goal is for the user to search Github Repositories and Users. Two input
 - npm start
 ```
 
+**Used Redis Setex to Store Cached Value with timeout value. https://redis.io/commands/setex**
+
 ## Front End Project
 
 **Tech Stack**
