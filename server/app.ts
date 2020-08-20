@@ -49,7 +49,7 @@ app.post("/search", checkCache, async (req: Request, res: Response) => {
     const responseData = response.data;
 
     //add data to Redis
-    redisClient.set(`${entityType}:${searchText}`, JSON.stringify(responseData));
+    redisClient.setex(`${entityType}:${searchText}`, 7200, JSON.stringify(responseData));
     return res.json(responseData);
   } catch (error) {
     console.log(error);
