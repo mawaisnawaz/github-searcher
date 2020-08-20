@@ -6,7 +6,7 @@ Welcome to the Github Searcher!
 
 # Front End Project
 
-# Start project by below steps
+## Start project by below steps
 
 ```
 - npm install
