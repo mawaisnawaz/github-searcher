@@ -60,3 +60,5 @@ The main goal is for the user to search Github Repositories and Users. Two input
 - npm install
 - npm start
 ```
+
+> Used Styled-components for CSS.
