@@ -1,0 +1,70 @@
+openapi: 3.0.0
+info:
+  title: Github Searcher
+  description: Search API for Github Users and Repositories
+  contact:
+    email: awais00772@gmail.com
+  license:
+    name: MIT
+    url: https://www.mit.edu/~amini/LICENSE.md
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000
+    description: Github API
+tags:
+  - name: Search
+    description: Api to Search Github
+  - name: Clear Cache
+    description: Operation to Clear Redis Cache
+paths:
+  /search:
+    post:
+      tags:
+        - Search
+      description: Search Github Users and Repositores
+      operationId: searchData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/body"
+            examples:
+              user:
+                value:
+                  searchText: awais
+                  entityType: users
+              repositories:
+                value:
+                  searchText: github
+                  entityType: repositories
+      responses:
+        "200":
+          description: Search Successfull
+        "400":
+          description: Bad request. Search Text or Entity is Missing.
+        "500":
+          description: Server Error
+  /clear-cache:
+    get:
+      tags:
+        - Clear Cache
+      description: |
+        By calling this Api all data stored in Redis cache will be cleared
+      operationId: clearCache
+      responses:
+        "200":
+          description: Cache Cleared Successfully
+        "500":
+          description: Server Error
+components:
+  schemas:
+    body:
+      type: object
+      properties:
+        searchText:
+          type: string
+        entityType:
+          type: string
+      example:
+        searchText: awais
+        entityType: users
