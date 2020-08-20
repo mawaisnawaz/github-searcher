@@ -10,6 +10,16 @@ The main goal is for the user to search Github Repositories and Users. Two input
 
 ## Server
 
+**Tech Stack**
+
+```
+ - Node JS
+ - Express JS
+ - Typescript
+ - Redis
+ - Axios
+```
+
 **Pre Requistics**
 
 ```
@@ -24,6 +34,17 @@ The main goal is for the user to search Github Repositories and Users. Two input
 ```
 
 ## Front End Project
+
+**Tech Stack**
+
+```
+ - React
+ - Redux
+ - Typescript
+ - Redux-Persistent
+ - Styled-components
+ - Axios
+```
 
 **Pre Requistics**
 
