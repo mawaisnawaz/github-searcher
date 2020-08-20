@@ -18,12 +18,19 @@ export const fetchSearchResponse = (filter: any) => {
 
     try {
       const response = await axios.post(apiUrl, params);
-
       dispatch(fetchDataSuccess(response.data));
     } catch (error) {
-      console.error(error as Error);
+      const { response } = error;
+      const { request } = response; // take everything but 'request'
+      console.error(request);
       dispatch(handleDataLoading(false));
-      dispatch(fetchDataError(error));
+      dispatch(
+        fetchDataError({
+          status: request.status,
+          statusText: request.statusText,
+          message: request.responseText,
+        })
+      );
     }
   };
 };

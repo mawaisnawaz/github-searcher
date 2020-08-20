@@ -29,11 +29,13 @@ const ResultComponent: React.FunctionComponent<ResultProps> = ({
               <h3 className="repoName">{value.full_name}</h3>
 
               <div className="user">
-                <img
-                  className="icon"
-                  alt="repo"
-                  src={value?.owner?.avatar_url}
-                />
+                {value?.owner?.avatar_url && (
+                  <img
+                    className="icon"
+                    alt="repo"
+                    src={value?.owner?.avatar_url || ""}
+                  />
+                )}
                 <h4 className="username">{value?.owner?.login}</h4>
               </div>
               <Flex justifyContent="space-between">
@@ -51,7 +53,13 @@ const ResultComponent: React.FunctionComponent<ResultProps> = ({
           map(searchResult, (value: UserInterface, index) => (
             <User key={index}>
               <Flex alignItems="center">
-                <img className="icon" alt="user" src={value?.avatar_url} />
+                {value?.avatar_url && (
+                  <img
+                    className="icon"
+                    alt="user"
+                    src={value?.avatar_url || ""}
+                  />
+                )}
                 <h2 className="username">{value.login}</h2>
               </Flex>
               <h4 className="score">Score: {value.score}</h4>

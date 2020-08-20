@@ -76,7 +76,9 @@ const SearchComponent: React.FC = (): React.ReactElement => {
         </Flex>
         {!isEmpty(error) && (
           <>
-            <Error>{error.name}</Error>
+            <Error>
+              {error.status}: {error.statusText}
+            </Error>
             <Error>{error.message}</Error>
           </>
         )}
